@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Choka.Web", "Choka.Web\Choka.Web.csproj", "{90C9631F-3447-4D82-8C98-6ADEA37942A0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{90C9631F-3447-4D82-8C98-6ADEA37942A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90C9631F-3447-4D82-8C98-6ADEA37942A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90C9631F-3447-4D82-8C98-6ADEA37942A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90C9631F-3447-4D82-8C98-6ADEA37942A0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A391A834-8F70-4C6C-AA06-6A5F886C57B4}
+	EndGlobalSection
+EndGlobal

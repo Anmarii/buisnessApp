@@ -1,0 +1,151 @@
+﻿@* @model IEnumerable<Choka.Web.Models.JobApplication>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CvFilePath)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubmittedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JobOffer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RowId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsActive)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Version)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CvFilePath)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubmittedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobOffer.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RowId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Version)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+ *@
+
+@model IEnumerable<Choka.Web.Models.JobApplication>
+
+@{
+    ViewData["Title"] = "Zgłoszenia kandydatów";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Dodaj nowe zgłoszenie</a>
+</p>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Imię i nazwisko</th>
+            <th>Email</th>
+            <th>Data zgłoszenia</th>
+            <th>Stanowisko</th>
+            <th>Status</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model)
+{
+        <tr>
+            <td>@item.FullName</td>
+            <td>@item.Email</td>
+            <td>@item.SubmittedAt.ToString("yyyy-MM-dd HH:mm")</td>
+            <td>@item.JobOffer?.Title</td>
+            <td>@item.Status</td>
+            <td>
+                <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.Id">Szczegóły</a>
+                <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@item.Id">Edytuj</a>
+                <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
+
+                <form asp-action="Accept" asp-route-id="@item.Id" method="post" style="display:inline">
+                    <button type="submit" class="btn btn-success btn-sm">Akceptuj</button>
+                </form>
+                <form asp-action="Reject" asp-route-id="@item.Id" method="post" style="display:inline">
+                    <button type="submit" class="btn btn-outline-danger btn-sm">Odrzuć</button>
+                </form>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
